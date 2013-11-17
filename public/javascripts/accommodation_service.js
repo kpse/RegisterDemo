@@ -13,9 +13,9 @@ var accommodationService = function ($http) {
     };
 
     // an instance method to create a new Book
-    Accommodation.prototype.create = function () {
-        var accommodation = this;
-        return $http.post('/accommodations/', accommodation).then(function (response) {
+    Accommodation.create = function (acc) {
+        var accommodation = acc;
+        return $http.post('/accommodations', acc).then(function (response) {
             accommodation.id = response.data.id;
             return accommodation;
         });

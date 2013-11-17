@@ -7,6 +7,7 @@ GET        /                          controllers.Application.index
 GET        /admin                     controllers.Application.admin
 GET        /accommodations/:id        controllers.Accommodations.show(id: Long)
 GET        /accommodations            controllers.Accommodations.all
+POST        /accommodations            controllers.Accommodations.create
 
 GET        /templates/*file           controllers.Static.at(path="/public/templates", file)
 

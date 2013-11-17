@@ -9,9 +9,7 @@ case class Accommodation(id: Long, name: String, desc: String, imageUrl: String)
 
 object Accommodation {
 
-  def findById(id: Long) = Accommodation.all.find {
-    a => a.id == id
-  }
+  def findById(id: Long) = Accommodation.all.find { _.id == id }
 
   val simple = {
     get[Long]("id") ~
@@ -29,14 +27,15 @@ object Accommodation {
       SQL("select * from accommodation").as(Accommodation.simple *)
   }
 
-  def create(name: String, desc: String, imageUrl: String) = {
+  def create(tuple:(String, String, Option[String])) = {
     DB.withConnection {
       implicit connection =>
-        SQL("insert into accommodation(name, desc, imageUrl) values ({name}, {desc} {imageUrl})").on(
-          'name -> name,
-          'desc -> desc,
-          'imageUrl -> imageUrl
-        ).executeUpdate()
+        val id : Option[Long] = SQL("insert into accommodation(name, desc, imageUrl) values ({name}, {desc}, {imageUrl})").on(
+          'name -> tuple._1,
+          'desc -> tuple._3.getOrElse(tuple._1),
+          'imageUrl -> tuple._2
+        ).executeInsert()
+        findById(id.getOrElse(-1))
     }
   }
 

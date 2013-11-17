@@ -27,7 +27,8 @@ admin.config(function ($stateProvider, $urlRouterProvider) {
 
 admin.controller({
     'AccommodationCtrl': AccommodationUtil.accCtrl,
-    'SingleBuildingCtrl': AccommodationUtil.buildingCtrl
+    'SingleBuildingCtrl': AccommodationUtil.buildingCtrl,
+    'addAccommodationCtrl' : AccommodationUtil.addAccommodationCtrl
 })
 
 angular.module('admin').factory('Accommodation', accommodationService);
