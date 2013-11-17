@@ -3,8 +3,11 @@
 # ~~~~
 
 # Home page
-GET        /                       controllers.Application.index
-GET        /templates/*file        controllers.Static.at(path="/public/templates", file)
+GET        /                          controllers.Application.index
+GET        /accommodations/:id        controllers.Accommodations.show(id: Long)
+GET        /accommodations            controllers.Accommodations.all
+
+GET        /templates/*file           controllers.Static.at(path="/public/templates", file)
 
 # Map static resources from the /public folder to the /assets URL path
-GET        /assets/*file           controllers.Assets.at(path="/public", file)
+GET        /assets/*file              controllers.Assets.at(path="/public", file)
