@@ -2,3 +2,14 @@ This is your new Play 2.1 application
 =====================================
 
 This file will be packaged with your application, when using `play dist`.
+
+TODOs:
+
+1 default router: wip OK
+2 backend service accommodation
+3 styling
+4 cookie, personal info
+5 left panel
+6 progress indicator
+7 dynamic process
+8
