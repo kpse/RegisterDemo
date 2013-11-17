@@ -4,6 +4,7 @@
 
 # Home page
 GET        /                          controllers.Application.index
+GET        /admin                     controllers.Application.admin
 GET        /accommodations/:id        controllers.Accommodations.show(id: Long)
 GET        /accommodations            controllers.Accommodations.all
 

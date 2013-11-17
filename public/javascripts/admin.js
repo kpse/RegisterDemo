@@ -1,21 +1,17 @@
-var app = angular.module("app", ['ui.router']);
+var admin = angular.module("admin", ['ui.router']);
 
-app.config(function ($stateProvider, $urlRouterProvider) {
+admin.config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
-        .state('individual', {
-            url: '/individual',
-            templateUrl: 'templates/app.html'
-        })
-        .state('accommodation', {
-            url: '/accommodation',
+        .state('studentPlatform', {
+            url: '/studentPlatform',
             templateUrl: 'templates/list.html',
             controller: 'AccommodationCtrl', resolve: {
                 resolvedprop: [function () {
-                    return {url: '/#/accommodation' }
+                    return {url: '/admin#/studentPlatform' }
                 }]
             }
         })
-        .state('accommodation.item', {
+        .state('studentPlatform.item', {
             url: '/:item',
             templateUrl: 'templates/accommodation.building.html',
             controller: 'SingleBuildingCtrl'
@@ -28,9 +24,10 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/wip')
 })
 
-app.controller({
+
+admin.controller({
     'AccommodationCtrl': AccommodationUtil.accCtrl,
     'SingleBuildingCtrl': AccommodationUtil.buildingCtrl
 })
 
-angular.module('app').factory('Accommodation', accommodationService);
+angular.module('admin').factory('Accommodation', accommodationService);
