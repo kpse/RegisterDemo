@@ -4,7 +4,7 @@ admin.config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('studentPlatform', {
             url: '/studentPlatform',
-            templateUrl: 'templates/list.html',
+            templateUrl: 'templates/admin_list.html',
             controller: 'AccommodationCtrl', resolve: {
                 resolvedprop: [function () {
                     return {url: '/admin#/studentPlatform' }
