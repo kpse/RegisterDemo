@@ -10,6 +10,7 @@ case class Accommodation(id: Long, name: String, desc: String, imageUrl: String)
 object Accommodation {
 
   def findById(id: Long) = Accommodation.all.find { _.id == id }
+  def findByName(name: String) = Accommodation.all.find { _.name == name }
 
   val simple = {
     get[Long]("id") ~

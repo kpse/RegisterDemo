@@ -18,8 +18,18 @@ class IntegrationSpec extends Specification {
 
         browser.goTo("http://localhost:3333/")
 
-        browser.pageSource must contain("Your new application is ready.")
+        browser.pageSource must contain("欢迎你！")
        
+      }
+    }
+
+    "has admin page" in {
+      running(TestServer(3333), HTMLUNIT) { browser =>
+
+        browser.goTo("http://localhost:3333/admin")
+
+        browser.pageSource must contain("智慧报道--老师管理平台")
+
       }
     }
     
