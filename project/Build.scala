@@ -38,7 +38,7 @@ object ApplicationBuild extends Build {
     // link jasmine to the standard 'sbt test' action.
     // Now when running 'test' jasmine tests will be run
     // and after that other Play tests will be executed.
-    (test in Test) <<= (test in Test) dependsOn (jasmine)
-  )
+    (test in Test) <<= (test in Test)
+  ) dependsOn (jasmine)
 
 }
